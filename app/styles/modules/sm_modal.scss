@@ -1,0 +1,268 @@
+.smodal {
+    background-color: #f8f8f8;
+    width: 750px;
+    min-height: 580px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 2px 13px 0 #444444;
+    font: 13px/17px $fontDef;
+    color: #666;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
+
+.smodal__header {
+    background-color: #fdfdfd;
+    box-shadow: 0 1px 0 0 #dddddd;
+    padding: 14px 40px 14px 20px;
+    font: 20px/32px $fontDef;
+    position: relative; 
+    .sign-icon {
+        float: left;
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+    }
+}
+
+.smodal_close {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij4gICAgPHBhdGggZmlsbD0iIzQyNDI0MiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTQgMTIuNkwxMi42IDE0IDcgOC40IDEuNCAxNCAwIDEyLjYgNS42IDcgMCAxLjQgMS40IDAgNyA1LjYgMTIuNiAwIDE0IDEuNCA4LjQgN3oiIG9wYWNpdHk9Ii41NCIvPjwvc3ZnPg==);
+    background-size: 100% auto;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+}
+
+.smodal__content {
+    padding: 20px 30px;
+}
+
+.smodal_box {
+    @include box;
+    margin: 5px;
+}
+
+.smodal_sign {
+    margin: 0 0 5px;
+}
+
+.smodal_lb {
+    $color-label: #ff9000;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 57px;    
+    height: 57px;
+    overflow: hidden;
+    &:before,
+    &:after {
+        content: '';
+        background: darken($color-label, 10%);
+        width: 4px;
+        height: 10px;
+        position: absolute;
+        z-index: 1;
+    }
+    &:before {
+        left: 0;
+        bottom: 3px;
+    }
+    &:after {
+        top: -3px;
+        right: 6px;
+        transform: rotate(-270deg);
+    }
+    .smodal_lb__text {
+        background: $color-label;
+        font: bold 13px/20px $fontDef;
+        text-align: center;
+        color: #fff;
+        letter-spacing: -0.4px;
+        text-transform: uppercase;
+        transform: rotate(-45deg);
+        position: absolute;
+        left: -15px;
+        right: -15px;
+        top: 10px;
+        margin: 0 0 0 -18px;
+        z-index: 2;
+    }
+}
+
+.smodal_box__container {
+    margin: 0 -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.smodal_box_item {
+    margin: 0 10px;
+    flex: 1 1;
+}
+
+.sm_icon {
+    width: 44px;
+    text-align: center;
+    flex: 0 1;
+}
+
+.sm_icon__img {
+    display: block;
+    margin: 0 auto 5px;
+    width: 44px;
+    height: 44px;
+}
+
+.smodal_sign .sm_icon__img {
+    height: 40px;
+}
+
+.sm_icon__txt {
+    height: 17px;
+    font: bold 14px/18px $fontDef;
+    color: #444;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.sm_desc {
+    p {
+        margin: 5px 0 5px;
+    }
+}
+
+.sm_heading {
+    display: block;
+    font: bold 14px/17px $fontDef;
+    text-transform: uppercase;
+    color: #444;
+}
+
+.smodal_form {
+    max-width: 375px;
+    margin-top: 10px;
+}
+
+.smodal_form__row {
+    overflow: hidden;
+    display: flex;
+    margin: 0 0 5px;
+}
+
+.smodal_form_control {
+    background: $white;
+    border: solid 1px #cccccc;
+    border-radius: 3px;
+    width: 100%;
+    height: 32px;
+    padding: 8px 10px 7px;
+    margin: 0;
+    font: 14px/17px $fontDef;
+    box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.smodal_btn {
+    border: 1px solid;
+    display: inline-block;
+    border-radius: 3px;
+    color: $white;
+    font: 12px/16px $fontDef;
+    text-transform: uppercase;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 7px 9px;
+    min-width: 100px;
+    cursor: pointer;
+    &.smodal_btn_orange {
+        border-color: #fd7722;
+        @include gradient(#ffa700, #fd7722);
+        &:hover {
+            @include gradient(#fd7722, #ffa700);
+        }
+    }
+}
+
+.smodal_sign {
+    .smodal_form_control {
+        float: left;
+        width: 70%;
+    }
+
+    .smodal_btn {
+        float: left;
+        width: 20%;
+        margin-left: 10px;
+    }
+}
+
+.sm_signature {
+    @include signature_txt;
+    background: #fcfcfc;
+    border: 1px solid #ccc;
+    padding: 10px;
+    flex: 0 0 171px;
+    box-sizing: border-box;
+}
+
+.smodal_options {
+    overflow: hidden;
+    margin: 0 -5px;
+    display: flex;
+    flex-wrap: wrap;
+    .smodal_box {
+        flex: 1 0 calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .smodal {
+        width: auto;
+        position: static;
+        border-radius: 0;
+        box-shadow: none;
+        transform: none;
+    }
+    .smodal_sign,
+    .smodal__header .sign-icon {
+        display: none;
+    }
+    .smodal__header {
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+        padding: 10px 40px;
+    }
+    .smodal_close {
+        width: 14px;
+        height: 14px;
+        right: 15px;
+    }
+    .smodal__content {
+        padding: 15px;
+    }
+    .smodal_options {
+        display: block;
+        margin: 0;
+    }
+    .smodal_options .smodal_box {
+        margin: 10px 0 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,71 @@
+@import "font-face.scss";
+@import "variablel.scss";
+
+body {
+    background: $brownish_grey;
+    margin: 0;
+    color: #000;
+    font: 12px/16px $fontDef;
+}
+
+img {
+    border-style: none;
+    width: 100%;
+    max-width: 100%;
+}
+
+form,
+fieldset {
+    margin: 0;
+    padding: 0;
+    border-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+@mixin gradient($start, $stop){
+    background: mix($start, $stop, 50%);
+    background: -moz-linear-gradient(top,  $start 0%, $stop 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop(100%,$stop));
+    background: -webkit-linear-gradient(top,  $start 0%,$stop 100%);
+    background: -o-linear-gradient(top,  $start 0%,$stop 100%);
+    background: -ms-linear-gradient(top,  $start 0%,$stop 100%);
+    background: linear-gradient(to bottom,  $start 0%,$stop 100%);
+}
+
+@mixin box($radius:3px, $padding: 15px 20px) {
+    display: block;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: $radius;
+    padding: $padding;
+    position: relative;
+    color: #666;
+    box-sizing: border-box;
+}
+
+@mixin signature_txt($font-size: 34px) {
+    font-size: $font-size;
+    line-height: $font-size/2*3;
+    font-family: $fontSign;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@import "modules/sm_modal.scss";
